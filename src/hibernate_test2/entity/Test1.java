@@ -12,17 +12,37 @@ public class Test1 {
                 .addAnnotatedClass(Employee.class)
                 .addAnnotatedClass(Detail.class)
                 .buildSessionFactory();
+        Session session = null;
 
         try {
-            Session session = factory.getCurrentSession();
-            Employee employee = new Employee("Alisa", "Kochurova", "HR", 600);
-            Detail detail = new Detail("ishevsk", "81215515", "koralll79@gmail.com");
+             session = factory.getCurrentSession();
+//            Employee employee = new Employee("Alisa", "Kochurova", "HR", 600);
+//            Detail detail = new Detail("ishevsk", "81215515", "koralll79@gmail.com");
+//
+//            employee.setEmpDetail(detail); // передаем детали для работника  с помощь. сеттера
+//
+//            session.beginTransaction();  // открываем транзакци.
+//
+//            session.save(employee);  //сохраняем объект в БД и detail передаем в параметр(тоже сохраняется в БД)
+//
+//            session.getTransaction().commit(); // закрываем транзакцию
+//
+//            System.out.println("DONE");
 
-            employee.setEmpDetail(detail); // передаем детали для работника
 
+//            session.beginTransaction();  // открываем транзакци.
+//            Employee emp = session.get(Employee.class, 10); // получаем детали работника по ID
+//            System.out.println(emp.getEmpDetail());
+//
+//
+//            session.getTransaction().commit(); // закрываем транзакцию
+//
+//            System.out.println("DONE");
             session.beginTransaction();  // открываем транзакци.
+            Employee emp = session.get(Employee.class, 2); // получаем детали работника по ID и сохраняем в emp
+            session.delete(emp);  //  удаляем emp
 
-            session.save(employee);  //сохраняем объект в БД и detail передаем в параметр(тоже сохраняется в БД)
+
 
             session.getTransaction().commit(); // закрываем транзакцию
 
@@ -30,6 +50,7 @@ public class Test1 {
 
 
         } finally {
+            session.close();
             factory.close();
         }
 

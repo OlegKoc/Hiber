@@ -3,30 +3,30 @@ package hibernate_test2.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name="employees")
+@Table(name = "employees")
 
 public class Employee {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // автоматическое увеличение столбца  по правилам БД-ых
+    @Column(name = "id")
     private int id;
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
-    @Column(name="surname")
+    @Column(name = "surname")
     private String surname;
-    @Column(name="department")
+    @Column(name = "department")
     private String department;
-    @Column(name="salary")
+    @Column(name = "salary")
     private int salary;
 
-    @OneToOne(cascade = CascadeType.ALL)     // аннотация указываает на стоблец, который осуществляет связь с другими объектам
-    @JoinColumn(name="details_id")  // связь с таблицей details  в стоблце details_id
+    @OneToOne(cascade = CascadeType.ALL)
+    // аннотация указываает на стоблец, который осуществляет связь с другими объектам
+    @JoinColumn(name = "details_id")  // связь с таблицей details  в стоблце details_id
 
     private Detail empDetail;  // используем для связи между таблицами
 
     public Employee() {
     }
-
 
 
     public Employee(String name, String surname, String department, int salary) {
@@ -88,7 +88,7 @@ public class Employee {
     }
 
 
-    public Detail getEmpDetail(Detail detail) {
+    public Detail getEmpDetail() {
         return empDetail;
     }
 

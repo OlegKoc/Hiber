@@ -15,9 +15,9 @@ public class Test2 {
         try {
             Session session = factory.getCurrentSession(); // открываем сессию
 
-            Employee emp = new Employee("Sofya", "Kochurova", "PR", 700);
+            Employee emp = new Employee("Roman", "Kochurov", "IT", 1000);
             session.beginTransaction();  // открываем транзакцию
-            session.save(emp); // сохраняем объект в базу
+            //session.save(emp); // сохраняем объект в базу
 
             //session.getTransaction().commit();// закрываем транзакцию
 
@@ -25,7 +25,8 @@ public class Test2 {
 
 
 
-            int myId = emp.getId(); //получить работника из БД
+            int myId = emp.getId();
+            String myName = "Sofya";//получить работника из БД
 //            session = factory.getCurrentSession(); // открываем новую сессию
 //            session.beginTransaction(); // открываем транзакцию
             Employee employee = session.get(Employee.class, myId); //получаем работника по ID

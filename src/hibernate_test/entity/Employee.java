@@ -2,13 +2,13 @@ package hibernate_test.entity;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name="employees")
+@Entity // аннотация говорит о том, что данный класс будет связан с БД
+@Table(name="employees")   // с какой таблицей будет связан этот класс в БД
 
 public class Employee {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name="id")   // связываем поле id  со столбцом ID  в БД
     private int id;
     @Column(name="name")
     private String name;
@@ -21,7 +21,6 @@ public class Employee {
 
     public Employee() {
     }
-
 
     public Employee(String name, String surname, String department, int salary) {
         this.name = name;

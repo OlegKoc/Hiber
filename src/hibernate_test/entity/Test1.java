@@ -7,23 +7,20 @@ import org.hibernate.cfg.Configuration;
 public class Test1 {
 
     public static void main(String[] args) {
-        SessionFactory factory = new Configuration() //создаем объект сессии
-                .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Employee.class)
-                .buildSessionFactory();
 
-        try {
-            Session session = factory.getCurrentSession();
 
-            Employee emp = new Employee("Alisa", "Kochurova", "IT", 600);
-            session.beginTransaction();  // открываем транзакцию
-            session.save(emp); // сохраняем объект в базу
+        //DBManager.createImployee("Oleg", "Kochurov", "IT", 1000); // вызываем метод по созданию работника из класса DBManager.
 
-            session.getTransaction().commit(); // закрываем транзакцию
-        } finally {
-            factory.close();
-        }
+       // DBManager.receiveImployees(2); // получаем работника по его id
+
+        //DBManager.getAllEmployees();
+
+        DBManager.getEmployee();
+
+
 
 
     }
+
+
 }
