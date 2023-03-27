@@ -16,10 +16,10 @@ public class Test1 {
 
         try {
              session = factory.getCurrentSession();
-//            Employee employee = new Employee("Alisa", "Kochurova", "HR", 600);
-//            Detail detail = new Detail("ishevsk", "81215515", "koralll79@gmail.com");
+//            Employee employee = new Employee("Oleg", "Kochurov", "Sales", 1000);
+//            Detail detail = new Detail("ishevsk", "8121545216", "koralll18@gmail.com");
 //
-//            employee.setEmpDetail(detail); // передаем детали для работника  с помощь. сеттера
+//            employee.setEmpDetail(detail); // передаем детали для работника  с помощью сеттера
 //
 //            session.beginTransaction();  // открываем транзакци.
 //
@@ -31,13 +31,15 @@ public class Test1 {
 
 
 //            session.beginTransaction();  // открываем транзакци.
-//            Employee emp = session.get(Employee.class, 10); // получаем детали работника по ID
+//            Employee emp = session.get(Employee.class, 1); // получаем детали работника по ID
 //            System.out.println(emp.getEmpDetail());
 //
 //
 //            session.getTransaction().commit(); // закрываем транзакцию
 //
 //            System.out.println("DONE");
+
+
             session.beginTransaction();  // открываем транзакци.
             Employee emp = session.get(Employee.class, 2); // получаем детали работника по ID и сохраняем в emp
             session.delete(emp);  //  удаляем emp
