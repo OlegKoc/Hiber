@@ -15,9 +15,9 @@ public class Test2 {
         Session session = null;
 
         try {
-            session = factory.getCurrentSession();
-//            Employee employee = new Employee("ggggg", "jjjjjj", "tyu", 30);       // добавляем работника в БД
-//            Detail detail = new Detail("Perm", "45", "gfgf79@gmail.com");
+//            session = factory.getCurrentSession();
+//            Employee employee = new Employee("Sofya", "Kochurova", "HR", 950);       // добавляем работника в БД
+//            Detail detail = new Detail("Izhevsk", "455486991", "Sofya79@gmail.com");
 //
 //            employee.setEmpDetail(detail); // передаем детали для работника  с помощью сеттера
 //            detail.setEmployee(employee); //передаем в employee  детали
@@ -27,16 +27,31 @@ public class Test2 {
 //            session.getTransaction().commit(); // закрываем транзакцию
 //
 //            System.out.println("DONE");
+
+
+
+
+
+//            session = factory.getCurrentSession();
+//            session.beginTransaction();  // открываем транзакци.
+//
+//            Detail detail = session.get(Detail.class, 3); // получаем работника по ID
+//            System.out.println(detail.getEmployee());
+//
+//            session.getTransaction().commit(); // закрываем транзакцию
+
+
+
             session = factory.getCurrentSession();
-
-
             session.beginTransaction();  // открываем транзакци.
 
-            Detail detail = session.get(Detail.class, 4); // получаем работника по ID
-            System.out.println(detail.getEmployee());
+            Detail detail = session.get(Detail.class, 3); // получаем работника по ID
+            session.delete(detail);   // удаляем работника из деталей
 
+            //detail.getEmployee().setEmpDetail(null);  // разрушаем связь между деталями и работником
 
             session.getTransaction().commit(); // закрываем транзакцию
+
 
 
         } finally {

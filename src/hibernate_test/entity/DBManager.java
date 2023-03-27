@@ -80,7 +80,7 @@ public class DBManager {
         }
     }
 
-    public static void getEmployee(){
+    public static void getEmployee() {
 
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -98,7 +98,57 @@ public class DBManager {
         session.getTransaction().commit();
 
 
+    }
+
+    public static void employeeСhange(int id) {
+        SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Employee.class).buildSessionFactory();
+        try {
+
+
+            Session session = factory.getCurrentSession();
+            session.beginTransaction();
+            Employee emp = session.get(Employee.class, id);
+            emp.setSalary(1600);
+            session.getTransaction().commit();
+        } finally {
+            factory.close();
+        }
+
 
     }
+
+    public static void  employeesChange(){
+
+        SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Employee.class).buildSessionFactory();
+        try{
+            Session session = factory.getCurrentSession();
+            session.beginTransaction();
+            session.createQuery("update Employee set salary = 1000 where firstName = 'Roman'").executeUpdate();
+            session.getTransaction();
+
+        }
+        finally {
+            factory.close();
+        }
+
+    }
+
+    public static void  employeesDelete(){
+
+        SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Employee.class).buildSessionFactory();
+        try{
+            Session session = factory.getCurrentSession();
+            session.beginTransaction();
+            Employee emp = session.get(Employee.class, 5);
+            session.delete(emp);
+            session.getTransaction().commit();
+
+        }
+        finally {
+            factory.close();
+        }
+
+    }
+
 }
 

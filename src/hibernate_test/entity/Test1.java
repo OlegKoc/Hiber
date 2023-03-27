@@ -1,9 +1,5 @@
 package hibernate_test.entity;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-
 public class Test1 {
 
     public static void main(String[] args) {
@@ -13,9 +9,17 @@ public class Test1 {
 
        // DBManager.receiveImployees(2); // получаем работника по его id
 
-        //DBManager.getAllEmployees();
+        //DBManager.getAllEmployees(); // получаем всех работников
 
-        DBManager.getEmployee();
+        //DBManager.getEmployee(); // получаем работника по заданным условиям
+
+        //DBManager.employeeСhange(2); // изменение данных в таблице(изменили зарплату
+        //DBManager.employeesChange();
+
+        //DBManager.employeesDelete(); // удаляем работник по его ID
+
+
+
 
 
 
